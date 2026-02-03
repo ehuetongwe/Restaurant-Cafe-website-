@@ -1,11 +1,15 @@
-/* Chill Vibe Theme Variables */
+/* Lumière Pâtisserie Theme Variables (Upscale/Clean) */
 :root {
-    --color-bg: #1a1a1a;
-    --color-text: #f0f0f0;
-    --color-accent: #d4a373; /* Latte color */
-    --color-secondary: #ccd5ae; /* Sage green */
-    --color-glass: rgba(255, 255, 255, 0.1);
-    --color-glass-border: rgba(255, 255, 255, 0.2);
+    --color-bg: #FAFAFA;
+    /* Cream/Off-White */
+    --color-text: #333333;
+    /* Dark Slate */
+    --color-accent: #C5A059;
+    /* Gold/Bronze */
+    --color-secondary: #F4E1D2;
+    /* Soft Blush */
+    --color-card-bg: #FFFFFF;
+    --color-shadow: rgba(0, 0, 0, 0.05);
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
     --spacing-unit: 1rem;
@@ -25,8 +29,8 @@ body {
     line-height: 1.6;
 }
 
-/* Background Ambient Video */
-.video-background {
+/* Hero Background (Static Image) */
+.hero-background {
     position: fixed;
     top: 0;
     left: 0;
@@ -36,26 +40,21 @@ body {
     overflow: hidden;
 }
 
-.video-background video {
+.hero-background img {
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
-    opacity: 0.6; /* Dim the video for text readability */
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    opacity: 0.15;
+    /* Very subtle background */
 }
 
 /* Typography */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--font-heading);
-    font-weight: 400;
+    font-weight: 600;
+    color: #1a1a1a;
 }
 
 /* Hero Section */
@@ -68,49 +67,87 @@ h1, h2, h3 {
     text-align: center;
     padding: 2rem;
     position: relative;
+    background: url('../assets/hero.png') no-repeat center center/cover;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    /* Darken hero image slightly for text contrast */
+}
+
+.hero h1,
+.hero p,
+.hero .cta-button {
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     margin-bottom: 1rem;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    color: #FFFFFF;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    letter-spacing: -1px;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
     max-width: 600px;
+    color: #F0F0F0;
+    font-weight: 300;
 }
 
 .cta-button {
     background: var(--color-accent);
-    color: #1a1a1a;
-    padding: 1rem 2.5rem;
+    color: #FFFFFF;
+    padding: 1rem 3rem;
     border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
+    border-radius: 2px;
+    /* Sharper corners for modern luxury */
+    font-size: 1rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: all 0.3s ease;
     text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    background: #e9c4a0;
+    transform: translateY(-3px);
+    background: #D4AF6A;
+    box-shadow: 0 15px 40px rgba(197, 160, 89, 0.4);
 }
 
 /* Swipeable Menu Container */
 .menu-section {
-    padding: 4rem 1rem;
-    background: linear-gradient(to bottom, transparent, var(--color-bg) 20%);
+    padding: 6rem 1rem;
+    background: linear-gradient(to bottom, var(--color-bg), #FFFFFF);
     min-height: 100vh;
 }
 
 .menu-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+}
+
+.menu-header h2 {
+    font-size: 3rem;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+}
+
+.menu-header p {
+    color: #666;
+    font-size: 1.1rem;
 }
 
 /* Card Stack / Carousel Styles */
@@ -118,77 +155,102 @@ h1, h2, h3 {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 1.5rem;
+    gap: 2rem;
     padding: 2rem 1rem;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
 }
 
 .menu-container::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: none;
 }
 
 .menu-card {
-    flex: 0 0 85%; /* Mobile first: show 85% of card */
-    max-width: 400px;
+    flex: 0 0 85%;
+    max-width: 350px;
     scroll-snap-align: center;
-    background: var(--color-glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--color-glass-border);
-    border-radius: 20px;
-    padding: 2rem;
-    transition: transform 0.3s ease;
+    background: var(--color-card-bg);
+    border: none;
+    border-radius: 8px;
+    padding: 3rem 2rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 10px 40px var(--color-shadow);
+    position: relative;
+    overflow: hidden;
 }
 
 .menu-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
 .menu-item-image {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    margin-bottom: 1.5rem;
-    background-color: rgba(255,255,255,0.1);
+    /* Circle */
+    margin-bottom: 2rem;
     object-fit: cover;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.menu-card:hover .menu-item-image {
+    transform: scale(1.05) rotate(3deg);
 }
 
 .menu-item-title {
-    font-size: 1.5rem;
-    color: var(--color-accent);
+    font-size: 1.8rem;
+    color: var(--color-text);
     margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
 }
 
 .menu-item-price {
-    font-weight: bold;
+    font-weight: 500;
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-body);
 }
 
 .menu-item-desc {
-    font-size: 0.9rem;
-    opacity: 0.8;
+    font-size: 1rem;
+    color: #666;
     text-align: center;
+    line-height: 1.6;
 }
 
 /* Footer & About */
 .about-section {
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
     text-align: center;
-    background: var(--color-bg);
+    background: #FFFFFF;
+    border-top: 1px solid #EEEEEE;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .client-quote {
     font-style: italic;
-    opacity: 0.7;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    border-top: 1px solid var(--color-glass-border);
-    padding-top: 2rem;
+    color: var(--color-accent);
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    font-family: var(--font-heading);
+    border-top: 1px solid #F0F0F0;
+    padding-top: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Utilities */
-.hidden { display: none; }
+.hidden {
+    display: none;
+}
