@@ -1,0 +1,21 @@
+[build]
+  # The directory to deploy. 'public' contains the ready-to-serve content.
+  publish = "public"
+  # No build command needed for a simple static site, 
+  # but if you use a build script (like npm run build), add it here:
+  command = ""
+
+[[headers]]
+  # specific headers for all files
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+
+# Optional: Redirect rules
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
