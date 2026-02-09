@@ -1,4 +1,7 @@
 
+# Netlify
+.netlify/
+
 # Agentic Architecture
 .tmp/
 .env

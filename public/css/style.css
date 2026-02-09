@@ -1,18 +1,30 @@
-/* Lumière Pâtisserie Theme Variables (Upscale/Clean) */
+/* Lumière Pâtisserie Theme Variables (Afro-Fusion Edition) */
 :root {
-    --color-bg: #FAFAFA;
-    /* Cream/Off-White */
-    --color-text: #333333;
-    /* Dark Slate */
-    --color-accent: #C5A059;
-    /* Gold/Bronze */
-    --color-secondary: #F4E1D2;
-    /* Soft Blush */
-    --color-card-bg: #FFFFFF;
-    --color-shadow: rgba(0, 0, 0, 0.05);
+    --color-bg: #FDF8F3;
+    /* Warm Cream/Sand */
+    --color-text: #2A1810;
+    /* Deep Mahogany/Rich Brown */
+    --color-accent: #D4A54A;
+    /* Vibrant African Gold */
+    --color-terra: #D85835;
+    /* Rich Terracotta/Burnt Clay */
+    --color-ochre: #E39D3C;
+    /* Warm Ochre/Amber */
+    --color-rust: #A84E2F;
+    /* Rust/Deep Earth */
+    --color-copper: #B8733A;
+    /* Warm Copper */
+    --color-card-bg: #FFF9F0;
+    /* Ivory/Warm White */
+    --color-shadow: rgba(42, 24, 16, 0.12);
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
     --spacing-unit: 1rem;
+
+    /* African Pattern Colors */
+    --pattern-primary: #D4A54A;
+    --pattern-secondary: #D85835;
+    --pattern-tertiary: #E39D3C;
 }
 
 * {
@@ -21,12 +33,126 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-body);
     background-color: var(--color-bg);
     color: var(--color-text);
     overflow-x: hidden;
     line-height: 1.6;
+    position: relative;
+}
+
+/* African Geometric Pattern Overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.03;
+    background-image:
+        repeating-linear-gradient(45deg, var(--pattern-primary) 0px, var(--pattern-primary) 2px, transparent 2px, transparent 10px),
+        repeating-linear-gradient(-45deg, var(--pattern-secondary) 0px, var(--pattern-secondary) 2px, transparent 2px, transparent 10px);
+    pointer-events: none;
+}
+
+/* Navigation Header */
+.nav-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(253, 248, 243, 0.98);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    z-index: 1000;
+    border-bottom: 3px solid var(--color-accent);
+    box-shadow: 0 2px 20px rgba(212, 165, 74, 0.15);
+}
+
+/* African geometric accent on nav */
+.nav-header::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg,
+            var(--color-accent) 0%,
+            var(--color-terra) 25%,
+            var(--color-ochre) 50%,
+            var(--color-terra) 75%,
+            var(--color-accent) 100%);
+}
+
+.nav-logo img {
+    height: 60px;
+    width: auto;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--color-accent);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.nav-reservations {
+    background: var(--color-accent);
+    color: white !important;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.nav-reservations:hover {
+    background: var(--color-terra);
+    color: white !important;
+}
+
+.nav-reservations::after {
+    display: none;
 }
 
 /* Hero Background (Static Image) */
@@ -54,7 +180,25 @@ h2,
 h3 {
     font-family: var(--font-heading);
     font-weight: 600;
-    color: #1a1a1a;
+    color: var(--color-text);
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    line-height: 1.2;
+}
+
+h2 {
+    line-height: 1.3;
+}
+
+h3 {
+    line-height: 1.4;
+}
+
+p {
+    line-height: 1.8;
+    letter-spacing: 0.3px;
 }
 
 /* Hero Section */
@@ -67,18 +211,26 @@ h3 {
     text-align: center;
     padding: 2rem;
     position: relative;
-    background: url('../assets/hero.png') no-repeat center center/cover;
+    background:
+        linear-gradient(135deg, rgba(212, 165, 74, 0.2) 0%, rgba(216, 88, 53, 0.2) 100%),
+        linear-gradient(rgba(42, 24, 16, 0.4), rgba(42, 24, 16, 0.5)),
+        url('../assets/hero-afro.png') no-repeat center center/cover;
+    margin-top: 80px;
 }
 
-.hero::after {
+/* African pattern overlay on hero */
+.hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    /* Darken hero image slightly for text contrast */
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(212, 165, 74, 0.1) 50px, rgba(212, 165, 74, 0.1) 52px),
+        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(216, 88, 53, 0.1) 50px, rgba(216, 88, 53, 0.1) 52px);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .hero h1,
@@ -92,62 +244,195 @@ h3 {
     font-size: 4.5rem;
     margin-bottom: 1rem;
     color: #FFFFFF;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     letter-spacing: -1px;
 }
 
 .hero p {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     margin-bottom: 2.5rem;
-    max-width: 600px;
-    color: #F0F0F0;
+    max-width: 700px;
+    color: #FAFAFA;
     font-weight: 300;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .cta-button {
-    background: var(--color-accent);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-ochre) 100%);
     color: #FFFFFF;
     padding: 1rem 3rem;
-    border: none;
+    border: 2px solid var(--color-accent);
     border-radius: 2px;
-    /* Sharper corners for modern luxury */
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
-    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
+    display: inline-block;
+    box-shadow: 0 10px 30px rgba(212, 165, 74, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
-    background: #D4AF6A;
-    box-shadow: 0 15px 40px rgba(197, 160, 89, 0.4);
+    background: linear-gradient(135deg, var(--color-terra) 0%, var(--color-rust) 100%);
+    border-color: var(--color-terra);
+    box-shadow: 0 15px 40px rgba(216, 88, 53, 0.5);
 }
 
 /* Swipeable Menu Container */
 .menu-section {
     padding: 6rem 1rem;
-    background: linear-gradient(to bottom, var(--color-bg), #FFFFFF);
+    background: linear-gradient(to bottom, var(--color-bg), #FFF9F0);
     min-height: 100vh;
+    position: relative;
+}
+
+/* Decorative African border pattern */
+.menu-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--color-accent) 20%,
+            var(--color-terra) 40%,
+            var(--color-ochre) 60%,
+            var(--color-terra) 80%,
+            transparent 100%);
 }
 
 .menu-header {
     text-align: center;
     margin-bottom: 4rem;
+    position: relative;
 }
 
 .menu-header h2 {
     font-size: 3rem;
     color: var(--color-text);
     margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* African geometric accent under heading */
+.menu-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-terra), var(--color-accent));
 }
 
 .menu-header p {
-    color: #666;
+    color: var(--color-rust);
     font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Menu Tabs Navigation */
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.menu-tab {
+    background: transparent;
+    border: 2px solid var(--color-copper);
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 165, 74, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.menu-tab:hover::before {
+    left: 100%;
+}
+
+.menu-tab:hover {
+    background: linear-gradient(135deg, var(--color-copper), var(--color-rust));
+    border-color: var(--color-copper);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(184, 115, 58, 0.3);
+}
+
+.menu-tab.active {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-ochre));
+    border-color: var(--color-accent);
+    color: white;
+    box-shadow: 0 4px 15px rgba(212, 165, 74, 0.4);
+}
+
+@media (max-width: 768px) {
+    .menu-tabs {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0 1rem;
+        gap: 0.5rem;
+        scrollbar-width: none;
+    }
+
+    .menu-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu-tab {
+        white-space: nowrap;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
 }
 
 /* Card Stack / Carousel Styles */
@@ -170,10 +455,11 @@ h3 {
     max-width: 350px;
     scroll-snap-align: center;
     background: var(--color-card-bg);
-    border: none;
+    border: 2px solid rgba(212, 165, 74, 0.2);
+    border-bottom: 4px solid var(--color-accent);
     border-radius: 8px;
     padding: 3rem 2rem;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -182,16 +468,36 @@ h3 {
     overflow: hidden;
 }
 
+/* African pattern corner accent */
+.menu-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background:
+        linear-gradient(135deg, transparent 30%, var(--color-accent) 30%, var(--color-accent) 35%, transparent 35%),
+        linear-gradient(45deg, transparent 30%, var(--color-terra) 30%, var(--color-terra) 35%, transparent 35%);
+    opacity: 0.3;
+    transition: opacity 0.4s ease;
+}
+
+.menu-card:hover::before {
+    opacity: 0.6;
+}
+
 .menu-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 50px rgba(216, 88, 53, 0.25);
+    border-color: var(--color-terra);
+    border-bottom-color: var(--color-terra);
 }
 
 .menu-item-image {
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    /* Circle */
     margin-bottom: 2rem;
     object-fit: cover;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -199,7 +505,8 @@ h3 {
 }
 
 .menu-card:hover .menu-item-image {
-    transform: scale(1.05) rotate(3deg);
+    transform: scale(1.05);
+    /* No rotation for this cleaner look */
 }
 
 .menu-item-title {
@@ -210,47 +517,658 @@ h3 {
 }
 
 .menu-item-price {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.2rem;
-    color: var(--color-accent);
+    color: #C9A961;
+    /* Muted gold */
     margin-bottom: 1.5rem;
     font-family: var(--font-body);
+    position: relative;
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(90deg, transparent, rgba(212, 165, 74, 0.1), transparent);
 }
 
 .menu-item-desc {
     font-size: 1rem;
-    color: #666;
+    color: var(--color-rust);
     text-align: center;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* Chef's Selection Badge */
+.chef-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-ochre));
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.35rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 4px 12px rgba(212, 165, 74, 0.3);
+    font-family: var(--font-body);
+}
+
+/* Events & Private Dining Section */
+.events-section {
+    background: linear-gradient(to bottom, #FFF9F0, var(--color-bg));
+    padding-bottom: 4rem;
+    position: relative;
+}
+
+/* African border pattern */
+.events-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: repeating-linear-gradient(90deg,
+            var(--color-accent) 0px,
+            var(--color-accent) 20px,
+            var(--color-terra) 20px,
+            var(--color-terra) 40px,
+            var(--color-ochre) 40px,
+            var(--color-ochre) 60px);
+}
+
+.events-hero {
+    height: 60vh;
+    background:
+        linear-gradient(135deg, rgba(212, 165, 74, 0.3) 0%, rgba(216, 88, 53, 0.3) 100%),
+        linear-gradient(rgba(42, 24, 16, 0.4), rgba(42, 24, 16, 0.5)),
+        url('../assets/events-hero.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.events-title {
+    font-size: 4rem;
+    color: white;
+    font-family: var(--font-heading);
+    letter-spacing: 3px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    position: relative;
+    z-index: 2;
+}
+
+.events-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.section-heading {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    margin-bottom: 2rem;
+    color: var(--color-text);
+    letter-spacing: 3px;
+    position: relative;
+    display: inline-block;
+}
+
+/* African decorative underline */
+.section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 4px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--color-accent) 20%,
+            var(--color-terra) 50%,
+            var(--color-accent) 80%,
+            transparent 100%);
+}
+
+.event-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--color-copper);
+    font-weight: 500;
+}
+
+.event-description {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    color: var(--color-rust);
+}
+
+.events-cta {
+    margin: 3rem 0;
+}
+
+.venue-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.venue-photos img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 10px 40px rgba(212, 165, 74, 0.2);
+    transition: all 0.3s ease;
+}
+
+.venue-photos img:hover {
+    transform: scale(1.05);
+    border-color: var(--color-terra);
+    box-shadow: 0 15px 50px rgba(216, 88, 53, 0.3);
+}
+
+/* Instagram Feed Section */
+.instagram-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(to bottom, var(--color-bg), #FFF9F0);
+    text-align: center;
+    position: relative;
+}
+
+/* African pattern border */
+.instagram-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 4px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--color-accent) 25%,
+            var(--color-terra) 50%,
+            var(--color-accent) 75%,
+            transparent 100%);
+}
+
+.instagram-heading {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.instagram-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-copper);
+    margin-bottom: 3rem;
+    font-weight: 500;
+}
+
+.instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+}
+
+.instagram-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.instagram-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(212, 165, 74, 0.3), rgba(216, 88, 53, 0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.instagram-item:hover::before {
+    opacity: 1;
+}
+
+.instagram-item:hover {
+    transform: scale(1.05);
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 20px rgba(212, 165, 74, 0.3);
+}
+
+.instagram-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.instagram-item:hover img {
+    transform: scale(1.1);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-ochre));
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    border: 2px solid var(--color-accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+}
+
+.social-icon:hover::before {
+    width: 100px;
+    height: 100px;
+}
+
+.social-icon svg {
+    width: 22px;
+    height: 22px;
+    position: relative;
+    z-index: 1;
+}
+
+.social-icon:hover {
+    background: linear-gradient(135deg, var(--color-terra), var(--color-rust));
+    border-color: var(--color-terra);
+    transform: translateY(-5px) scale(1.1);
 }
 
 /* Footer & About */
 .about-section {
     padding: 6rem 2rem;
     text-align: center;
-    background: #FFFFFF;
-    border-top: 1px solid #EEEEEE;
+    background:
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(212, 165, 74, 0.03) 35px, rgba(212, 165, 74, 0.03) 70px),
+        var(--color-bg);
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(90deg, var(--color-accent), var(--color-terra), var(--color-ochre), var(--color-terra), var(--color-accent)) 1;
+    position: relative;
 }
 
 .about-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+    position: relative;
+    display: inline-block;
+}
+
+/* African decorative element */
+.about-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), var(--color-terra), var(--color-accent), transparent);
 }
 
 .client-quote {
     font-style: italic;
-    color: var(--color-accent);
+    color: var(--color-copper);
     margin-top: 3rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-family: var(--font-heading);
-    border-top: 1px solid #F0F0F0;
+    border-top: 3px solid var(--color-accent);
     padding-top: 3rem;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+}
+
+/* Quote decorative marks */
+.client-quote::before {
+    content: '"';
+    position: absolute;
+    top: 1rem;
+    left: -10px;
+    font-size: 4rem;
+    color: var(--color-terra);
+    opacity: 0.3;
+    font-family: var(--font-heading);
+}
+
+/* Reservations Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #2A1810 0%, #3D2517 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 4px;
+    border: 3px solid var(--color-accent);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* African pattern accent on modal */
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg,
+            var(--color-accent) 0%,
+            var(--color-terra) 25%,
+            var(--color-ochre) 50%,
+            var(--color-terra) 75%,
+            var(--color-accent) 100%);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--color-accent);
+}
+
+.modal-heading {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: 3px;
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group em {
+    font-style: italic;
+    color: #999;
+}
+
+.form-select,
+.form-input {
+    background: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    color: #333;
+    border-radius: 2px;
+}
+
+.form-select:focus,
+.form-input:focus {
+    outline: 2px solid var(--color-accent);
+}
+
+.find-table-btn {
+    margin-top: 1rem;
+    position: relative;
+}
+
+.decorative-left,
+.decorative-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--color-accent);
+}
+
+.decorative-left {
+    left: 20px;
+}
+
+.decorative-right {
+    right: 20px;
+}
+
+.decorative-left::before {
+    content: '⟨';
+}
+
+.decorative-right::before {
+    content: '⟩';
+}
+
+.modal-disclaimer {
+    font-size: 0.75rem;
+    color: #999;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.modal-disclaimer a {
+    color: white;
+    text-decoration: underline;
 }
 
 /* Utilities */
 .hidden {
     display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .nav-menu {
+        gap: 1.5rem;
+    }
+
+    .instagram-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Hamburger Menu (Hidden on Desktop) */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+    /* Above nav menu */
+}
+
+.hamburger-menu span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-text);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation when active */
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .nav-header {
+        padding: 1rem;
+    }
+
+    .nav-logo img {
+        height: 45px;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #FFF9F0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease-in-out;
+        box-shadow: none;
+        padding: 2rem;
+        z-index: 1000;
+        gap: 2rem;
+    }
+
+    .nav-menu.active {
+        right: 0;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu a {
+        font-size: 1.5rem;
+        color: var(--color-text);
+    }
+
+    .hero {
+        margin-top: 0;
+        padding-top: 100px;
+        min-height: 100svh;
+        height: auto;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .events-title {
+        font-size: 2rem;
+    }
+
+    .events-content {
+        padding: 3rem 1rem;
+    }
+
+    .venue-photos {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .instagram-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .modal-content {
+        padding: 2rem 1.5rem;
+        width: 95%;
+    }
+
+    .menu-card {
+        flex: 0 0 90%;
+        /* Wider cards on mobile */
+        max-width: none;
+    }
+
+    .menu-container {
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
 }

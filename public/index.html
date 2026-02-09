@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumière Pâtisserie | The Art of Sweet Perfection</title>
+    <title>Lumière Pâtisserie | Where Ubuntu Meets Artisan Excellence</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -12,67 +12,407 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <meta name="description"
-        content="Lumière Pâtisserie offers an exquisite collection of handcrafted french pastries, desserts, and artisan coffee in a modern, upscale setting.">
+        content="Experience luxury Afro-fusion dining at Lumière Pâtisserie. We celebrate African heritage through artisan pastries and soulful flavors, honoring the Ubuntu philosophy: I am because we are.">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Lumière Pâtisserie",
+      "image": [
+        "https://www.lumierepatisserie.com/assets/hero-afro.png"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "45 Avenue de la Lumière",
+        "addressLocality": "Beverly Hills",
+        "addressRegion": "CA",
+        "postalCode": "90210",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.0736,
+        "longitude": -118.4004
+      },
+      "url": "https://www.lumierepatisserie.com",
+      "telephone": "+13105550199",
+      "servesCuisine": "Afro-Fusion Artisan Pastry",
+      "priceRange": "$$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:00",
+          "closes": "21:00"
+        }
+      ],
+      "menu": "https://www.lumierepatisserie.com/#menu"
+    }
+    </script>
 </head>
 
 <body>
 
-    <!-- Hero Background Image Container -->
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+        <div class="nav-logo">
+            <img src="assets/logo.png" alt="Lumière">
+        </div>
+
+        <button class="hamburger-menu" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-menu">
+            <li><a href="#hours">Hours & Location</a></li>
+            <li><a href="#menu">Menus</a></li>
+            <li><a href="#events">Events & Private Dining</a></li>
+            <li><a href="#happenings">Happenings</a></li>
+            <li><a href="#gift">Gift Cards</a></li>
+            <li><a href="#" class="nav-reservations">Reservations</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Background Image -- Note: CSS handles the main hero image now -->
+    <!-- Kept in markup for semantic if needed, but styling is css driven -->
     <div class="hero-background">
-        <img src="assets/hero.png" alt="Patisserie Interior">
+        <!-- Subtle texture or secondary background could go here -->
     </div>
 
     <main>
         <!-- Hero Section -->
         <section class="hero">
             <h1>Lumière Pâtisserie</h1>
-            <p>The Art of Sweet Perfection.<br>Indulge in our exquisite collection of handcrafted desserts.</p>
-            <a href="#menu" class="cta-button">View Collection</a>
+            <p>Where Ubuntu Meets Excellence.<br>Celebrating African Heritage Through Artisan Pastry & Soulful Flavors.
+            </p>
+            <a href="#menu" class="cta-button">Explore Our Journey</a>
         </section>
 
         <!-- Swipeable Menu Section -->
         <section id="menu" class="menu-section">
             <div class="menu-header">
-                <h2>Our Signature Creations</h2>
-                <p>Curated flavors for the refined palate.</p>
+                <h2>Our Culinary Story</h2>
+                <p>Honoring ancestral flavors with contemporary artistry. Each creation tells a story of heritage,
+                    community, and craftsmanship.</p>
             </div>
 
-            <div class="menu-container">
-                <!-- Card 1 -->
+            <!-- Menu Category Buttons -->
+            <div class="menu-tabs">
+                <button class="menu-tab" data-category="brunch">Brunch</button>
+                <button class="menu-tab" data-category="breakfast">Breakfast</button>
+                <button class="menu-tab active" data-category="pastries">Lunch</button>
+                <button class="menu-tab" data-category="desserts">Dinner</button>
+                <button class="menu-tab" data-category="cafe">Drink Menu</button>
+                <button class="menu-tab" data-category="savory">Cocktails</button>
+                <button class="menu-tab" data-category="wine">Wine List</button>
+                <button class="menu-tab" data-category="dessert-ext">Dessert</button>
+            </div>
+
+            <!-- Brunch Category -->
+            <div class="menu-container hidden" data-category="brunch">
                 <div class="menu-card">
-                    <img src="assets/mousse.png" alt="Signature Gold Mousse" class="menu-item-image">
-                    <h3 class="menu-item-title">Le Dôme d'Or</h3>
-                    <div class="menu-item-price">$12.00</div>
-                    <p class="menu-item-desc">Rich dark chocolate mousse with a hazelnut praline core, finished with 24k
-                        gold leaf.</p>
+                    <img src="assets/le_brunch_lumiere.png" alt="Le Brunch Lumière" class="menu-item-image">
+                    <h3 class="menu-item-title">Le Brunch Lumière</h3>
+                    <div class="menu-item-price">$18</div>
+                    <p class="menu-item-desc">Soft scrambled eggs, crème fraîche, chives, toasted brioche</p>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="menu-card">
-                    <img src="assets/macarons.png" alt="Pastel Macarons" class="menu-item-image">
-                    <h3 class="menu-item-title">Macaron Prestige</h3>
-                    <div class="menu-item-price">$18.00 / Box</div>
-                    <p class="menu-item-desc">A selection of our finest macarons: Rose Lychee, Pistachio, and Sicilian
-                        Lemon.</p>
+                    <img src="assets/plantain_gruyere_tartine.png" alt="Plantain & Gruyère Tartine"
+                        class="menu-item-image">
+                    <h3 class="menu-item-title">Plantain & Gruyère Tartine</h3>
+                    <div class="menu-item-price">$17</div>
+                    <p class="menu-item-desc">Roasted sweet plantains, melted gruyère, thyme honey</p>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="menu-card">
-                    <img src="assets/eclair.png" alt="Gold Eclair" class="menu-item-image">
-                    <h3 class="menu-item-title">Éclair Royal</h3>
-                    <div class="menu-item-price">$9.50</div>
-                    <p class="menu-item-desc">Crisp choux pastry filled with vanilla bean crème pâtissière, topped with
-                        dark chocolate glaze and gold dust.</p>
+                    <span class="chef-badge">Chef's Selection</span>
+                    <img src="assets/salmon_parisienne.png" alt="Smoked Salmon Parisienne" class="menu-item-image">
+                    <h3 class="menu-item-title">Smoked Salmon Parisienne</h3>
+                    <div class="menu-item-price">$22</div>
+                    <p class="menu-item-desc">Cured salmon, dill crème, capers, lemon, baguette</p>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="menu-card">
-                    <img src="assets/tart.png" alt="Seasonal Fruit Tart" class="menu-item-image">
-                    <h3 class="menu-item-title">Tarte aux Fruits</h3>
-                    <div class="menu-item-price">$11.00</div>
-                    <p class="menu-item-desc">Buttery sablé tart shell filled with crème mousseline and adorned with
-                        fresh seasonal berries.</p>
+                    <img src="assets/afro_breakfast_bowl.png" alt="Afro-French Breakfast Bowl" class="menu-item-image">
+                    <h3 class="menu-item-title">Afro-French Breakfast Bowl</h3>
+                    <div class="menu-item-price">$16</div>
+                    <p class="menu-item-desc">Millet porridge, spiced pear, almonds, vanilla cream</p>
                 </div>
+
+
+            </div>
+
+            <!-- Breakfast Category -->
+            <div class="menu-container hidden" data-category="breakfast">
+                <div class="menu-card">
+                    <img src="assets/french_omelette.png" alt="Classic French Omelette" class="menu-item-image">
+                    <h3 class="menu-item-title">Classic French Omelette</h3>
+                    <div class="menu-item-price">$15</div>
+                    <p class="menu-item-desc">Fine herbs, gruyère, mixed greens</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/pain_perdu.png" alt="Pain Perdu" class="menu-item-image">
+                    <h3 class="menu-item-title">Pain Perdu</h3>
+                    <div class="menu-item-price">$16</div>
+                    <p class="menu-item-desc">Brioche French toast, vanilla bean custard, berry compote</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/avocado_tartine.png" alt="Avocado Tartine" class="menu-item-image">
+                    <h3 class="menu-item-title">Avocado Tartine</h3>
+                    <div class="menu-item-price">$14</div>
+                    <p class="menu-item-desc">Avocado mousse, olive oil, lemon, microgreens</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/croissant.png" alt="Breakfast Viennoiserie Board" class="menu-item-image">
+                    <h3 class="menu-item-title">Breakfast Viennoiserie Board</h3>
+                    <div class="menu-item-price">$12</div>
+                    <p class="menu-item-desc">Assorted pastries, butter, jam</p>
+                </div>
+            </div>
+
+            <!-- Lunch Category (Pastries) -->
+            <div class="menu-container" data-category="pastries">
+                <div class="menu-card">
+                    <img src="assets/poulet_yassa_wrap.png" alt="Poulet Yassa Wrap" class="menu-item-image">
+                    <h3 class="menu-item-title">Poulet Yassa Wrap</h3>
+                    <div class="menu-item-price">$18</div>
+                    <p class="menu-item-desc">Lemon-marinated chicken, caramelized onions, flatbread</p>
+                </div>
+
+                <div class="menu-card">
+                    <span class="chef-badge">Chef's Selection</span>
+                    <img src="assets/nicoise_salad.png" alt="Niçoise Lumière" class="menu-item-image">
+                    <h3 class="menu-item-title">Niçoise Lumière</h3>
+                    <div class="menu-item-price">$21</div>
+                    <p class="menu-item-desc">Seared tuna, haricots verts, egg, olives, mustard vinaigrette</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/jerk_mushroom_tart.png" alt="Jerk Mushroom Tart" class="menu-item-image">
+                    <h3 class="menu-item-title">Jerk Mushroom Tart</h3>
+                    <div class="menu-item-price">$17</div>
+                    <p class="menu-item-desc">Spiced mushrooms, flaky pastry, herb salad</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/steak_frites.png" alt="Steak Frites Classique" class="menu-item-image">
+                    <h3 class="menu-item-title">Steak Frites Classique</h3>
+                    <div class="menu-item-price">$26</div>
+                    <p class="menu-item-desc">Grilled sirloin, pommes frites, béarnaise</p>
+                </div>
+
+
+            </div>
+
+            <!-- Café Category -->
+            <div class="menu-container hidden" data-category="cafe">
+                <div class="menu-card">
+                    <img src="assets/ethiopian_coffee_1770145187674.png" alt="Ethiopian Heirloom Coffee"
+                        class="menu-item-image">
+                    <h3 class="menu-item-title">Ethiopian Heirloom Coffee</h3>
+                    <div class="menu-item-price">$5.50</div>
+                    <p class="menu-item-desc">Single-origin pour-over with notes of bergamot and blueberry.</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/rooibos_latte_1770145200973.png" alt="Rooibos Latte" class="menu-item-image">
+                    <h3 class="menu-item-title">Rooibos Latte</h3>
+                    <div class="menu-item-price">$6.00</div>
+                    <p class="menu-item-desc">South African red bush tea with steamed oat milk & honey.</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/bissap_tea_1770145213164.png" alt="Bissap Hibiscus Iced Tea"
+                        class="menu-item-image">
+                    <h3 class="menu-item-title">Bissap Hibiscus Iced Tea</h3>
+                    <div class="menu-item-price">$5.00</div>
+                    <p class="menu-item-desc">West African hibiscus tea, lightly sweetened with ginger essence.</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/moroccan_mint_tea.png" alt="Moroccan Mint Fusion" class="menu-item-image">
+                    <h3 class="menu-item-title">Moroccan Mint Fusion</h3>
+                    <div class="menu-item-price">$5.50</div>
+                    <p class="menu-item-desc">Green tea with fresh mint leaves & orange blossom water.</p>
+                </div>
+
+
+
+
+
+                <div class="menu-card">
+                    <img src="assets/cafe_touba.png" alt="Café Touba" class="menu-item-image">
+                    <h3 class="menu-item-title">Café Touba</h3>
+                    <div class="menu-item-price">$6.00</div>
+                    <p class="menu-item-desc">Senegalese spiced coffee with Guinea pepper & cloves.</p>
+                </div>
+            </div>
+
+            <!-- Savory Category (Cocktails) -->
+            <div class="menu-container hidden" data-category="savory">
+                <div class="menu-card">
+                    <img src="assets/hibiscus_royale.png" alt="Hibiscus Royale" class="menu-item-image">
+                    <h3 class="menu-item-title">Hibiscus Royale</h3>
+                    <div class="menu-item-price">$16.00</div>
+                    <p class="menu-item-desc">Sparkling wine, house-made hibiscus syrup, candied ginger.</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/savanna_old_fashioned.png" alt="Savanna Old Fashioned" class="menu-item-image">
+                    <h3 class="menu-item-title">Savanna Old Fashioned</h3>
+                    <div class="menu-item-price">$18.00</div>
+                    <p class="menu-item-desc">Bourbon, spiced honey, orange bitters, smoked cinnamon.</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/dakar_gin_fizz.png" alt="Dakar Gin Fizz" class="menu-item-image">
+                    <h3 class="menu-item-title">Dakar Gin Fizz</h3>
+                    <div class="menu-item-price">$15.00</div>
+                    <p class="menu-item-desc">Gin, lime juice, mint, soda water, splash of pomegranate.</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/espresso_martini_noir.png" alt="Espresso Martini Noir" class="menu-item-image">
+                    <h3 class="menu-item-title">Espresso Martini Noir</h3>
+                    <div class="menu-item-price">$17.00</div>
+                    <p class="menu-item-desc">Vodka, Ethiopian cold brew, coffee liqueur, vanilla bean.</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/cape_town_mule.png" alt="Cape Town Mule" class="menu-item-image">
+                    <h3 class="menu-item-title">Cape Town Mule</h3>
+                    <div class="menu-item-price">$14.00</div>
+                    <p class="menu-item-desc">Vodka, ginger beer, lime, apricot brandy.</p>
+                </div>
+            </div>
+
+            <!-- Wine List Category -->
+            <div class="menu-container hidden" data-category="wine">
+                <div class="menu-card">
+                    <img src="assets/chenin_blanc.png" alt="Stellenbosch Chenin Blanc" class="menu-item-image">
+                    <h3 class="menu-item-title">Stellenbosch Chenin Blanc</h3>
+                    <div class="menu-item-price">$12 / $48</div>
+                    <p class="menu-item-desc">South Africa | Crisp apple, honey, floral notes.</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/provence_rose.png" alt="Côtes de Provence Rosé" class="menu-item-image">
+                    <h3 class="menu-item-title">Côtes de Provence Rosé</h3>
+                    <div class="menu-item-price">$13 / $52</div>
+                    <p class="menu-item-desc">France | Strawberry, citrus zest, elegant mineral finish.</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/bordeaux_superieur.png" alt="Bordeaux Supérieur" class="menu-item-image">
+                    <h3 class="menu-item-title">Bordeaux Supérieur</h3>
+                    <div class="menu-item-price">$14 / $56</div>
+                    <p class="menu-item-desc">France | Dark cherry, cedar, structured tannins.</p>
+                </div>
+
+
+            </div>
+
+            <!-- Dinner Category (desserts) -->
+            <div class="menu-container hidden" data-category="desserts">
+                <div class="menu-card">
+                    <img src="assets/branzino_provencal.png" alt="Seared Branzino Provençal" class="menu-item-image">
+                    <h3 class="menu-item-title">Seared Branzino Provençal</h3>
+                    <div class="menu-item-price">$32</div>
+                    <p class="menu-item-desc">Tomato confit, olives, saffron oil</p>
+                </div>
+
+                <div class="menu-card">
+                    <span class="chef-badge">Chef's Selection</span>
+                    <img src="assets/short_rib_bourguignon.png" alt="Braised Short Rib Bourguignon"
+                        class="menu-item-image">
+                    <h3 class="menu-item-title">Braised Short Rib Bourguignon</h3>
+                    <div class="menu-item-price">$38</div>
+                    <p class="menu-item-desc">Red wine jus, root vegetables, potato purée</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/lamb_tagine.png" alt="Lamb Tagine Parisienne" class="menu-item-image">
+                    <h3 class="menu-item-title">Lamb Tagine Parisienne</h3>
+                    <div class="menu-item-price">$36</div>
+                    <p class="menu-item-desc">Slow-braised lamb, apricot, warm spices</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/mafe_stew.png" alt="Mafé-Inspired Vegetable Stew" class="menu-item-image">
+                    <h3 class="menu-item-title">Mafé-Inspired Vegetable Stew</h3>
+                    <div class="menu-item-price">$24</div>
+                    <p class="menu-item-desc">Peanut sauce, seasonal vegetables, jasmine rice</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/duck_confit.png" alt="Duck Confit à l'Africaine" class="menu-item-image">
+                    <h3 class="menu-item-title">Duck Confit à l'Africaine</h3>
+                    <div class="menu-item-price">$34</div>
+                    <p class="menu-item-desc">Crispy duck leg, spiced honey glaze, lentils</p>
+                </div>
+            </div>
+
+            <!-- Dessert Category (dessert-ext) -->
+            <div class="menu-container hidden" data-category="dessert-ext">
+                <div class="menu-card">
+                    <img src="assets/mousse.png" alt="Le Dôme Ashanti" class="menu-item-image">
+                    <h3 class="menu-item-title">Le Dôme Ashanti</h3>
+                    <div class="menu-item-price">$14</div>
+                    <p class="menu-item-desc">Chocolate mousse, cocoa glaze, gold leaf</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/macarons.png" alt="Sahara Macarons (Box of 6)" class="menu-item-image">
+                    <h3 class="menu-item-title">Sahara Macarons (Box of 6)</h3>
+                    <div class="menu-item-price">$20</div>
+                    <p class="menu-item-desc">Rose, pistachio, mango, espresso</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/eclair.png" alt="Éclair Zanzi" class="menu-item-image">
+                    <h3 class="menu-item-title">Éclair Zanzi</h3>
+                    <div class="menu-item-price">$10.50</div>
+                    <p class="menu-item-desc">Coffee cream, dark chocolate icing</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/creme_brulee.png" alt="Crème Brûlée à la Vanille Noire" class="menu-item-image">
+                    <h3 class="menu-item-title">Crème Brûlée à la Vanille Noire</h3>
+                    <div class="menu-item-price">$12</div>
+                    <p class="menu-item-desc">Madagascar vanilla</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/tropical_mille_feuille.png" alt="Tropical Mille-Feuille" class="menu-item-image">
+                    <h3 class="menu-item-title">Tropical Mille-Feuille</h3>
+                    <div class="menu-item-price">$15</div>
+                    <p class="menu-item-desc">Pineapple, passionfruit cream</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="assets/amarula_affogato.png" alt="Amarula Affogato" class="menu-item-image">
+                    <h3 class="menu-item-title">Amarula Affogato</h3>
+                    <div class="menu-item-price">$9.00</div>
+                    <p class="menu-item-desc">Vanilla gelato drowned in espresso, finished with Amarula cream liqueur.
+                    </p>
+                </div>
+
+
             </div>
 
             <div style="text-align: center; margin-top: 4rem;">
@@ -82,15 +422,172 @@
 
         <!-- About / Contact -->
         <section class="about-section">
-            <h2>Visit Our Boutique</h2>
+            <h2>Join Our Circle</h2>
+            <p style="font-size: 1.1rem; color: var(--color-copper); margin-bottom: 0.5rem; font-weight: 500;">Ubuntu:
+                "I am because we are"</p>
             <p>45 Avenue de la Lumière, Beverly Hills, CA 90210</p>
             <p>Open Daily: 8am - 9pm</p>
 
             <div class="client-quote">
-                “Pastry is a language of love, spoken through sugar and gold.”
+                In every creation, we honor the hands that harvest, the traditions that inspire, and the community that
+                gathers. This is more than pastry—it is a celebration of our shared humanity.
+            </div>
+        </section>
+
+        <!-- Events & Private Dining Section -->
+        <section id="events" class="events-section">
+            <div class="events-hero">
+                <h2 class="events-title">EVENTS & PRIVATE DINING</h2>
+            </div>
+            <div class="events-content">
+                <h2 class="section-heading">GATHER IN UNITY</h2>
+                <p class="event-subtitle">Create meaningful moments in spaces designed for celebration, connection, and
+                    community.</p>
+                <p class="event-description">
+                    Our private dining venues honor the African tradition of gathering—where food becomes
+                    the centerpiece of storytelling, laughter, and shared joy. From intimate celebrations
+                    to grand occasions, we create experiences that bring people together.
+                </p>
+                <p class="event-description">
+                    Our culinary artisans work closely with you to craft menus that reflect your vision
+                    while celebrating the rich tapestry of African and global flavors. Each gathering is
+                    infused with warmth, intention, and the spirit of Ubuntu.
+                </p>
+                <p class="event-description">
+                    Whether it's an intimate dinner for two or a vibrant celebration for up to 1000 guests,
+                    we create experiences where every detail honors your story and brings your community closer.
+                </p>
+                <a href="#" class="cta-button events-cta">Plan Your Gathering</a>
+
+                <div class="venue-photos">
+                    <img src="assets/venue-interior.png" alt="Interior Venue">
+                    <img src="assets/venue-outdoor.png" alt="Outdoor Venue">
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Feed Section -->
+        <section id="happenings" class="instagram-section">
+            <h2 class="instagram-heading">OUR COMMUNITY'S MOMENTS</h2>
+            <p class="instagram-subtitle">Join the celebration. Share your Lumière experience and tag
+                @lumiere_patisserie to be featured in our circle.</p>
+
+            <div class="instagram-grid">
+                <div class="instagram-item"><img src="assets/eclair.png" alt="Instagram post"></div>
+                <div class="instagram-item"><img src="assets/mousse.png" alt="Instagram post"></div>
+                <div class="instagram-item"><img src="assets/croissant_kilimanjaro_1770145161101.png"
+                        alt="Instagram post"></div>
+                <div class="instagram-item"><img src="assets/tart.png" alt="Instagram post"></div>
+                <div class="instagram-item"><img src="assets/macarons.png" alt="Instagram post"></div>
+                <div class="instagram-item"><img src="assets/baobab_cream_puff_1770145174386.png" alt="Instagram post">
+                </div>
+                <div class="instagram-item"><img src="assets/ethiopian_coffee_1770145187674.png" alt="Instagram post">
+                </div>
+                <div class="instagram-item"><img src="assets/akara_beignets_1770145226453.png" alt="Instagram post">
+                </div>
+                <div class="instagram-item"><img src="assets/malva_pudding_1770145252703.png" alt="Instagram post">
+                </div>
+                <div class="instagram-item"><img src="assets/plantain_pain_perdu_1770145239870.png"
+                        alt="Instagram post"></div>
+            </div>
+
+            <div class="social-icons">
+                <a href="#" class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg></a>
+                <a href="#" class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg></a>
+                <a href="#" class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.9 2h-17.8c-.5 0-.9.4-.9.9v17.8c0 .5.4.9.9.9h9.6v-7.7h-2.6v-3h2.6v-2.2c0-2.6 1.6-4 3.9-4 1.1 0 2 .1 2.3.1v2.7h-1.6c-1.2 0-1.5.6-1.5 1.4v1.8h3l-.4 3h-2.6v7.7h5.1c.5 0 .9-.4.9-.9v-17.8c0-.5-.4-.9-.9-.9z" />
+                    </svg></a>
+                <a href="#" class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg></a>
+            </div>
+        </section>
+
+        <!-- About / Contact -->
+        <section id="hours" class="about-section">
+            <h2>Experience Ubuntu</h2>
+            <p style="font-size: 1.1rem; color: var(--color-copper); margin-bottom: 0.5rem; font-weight: 500;">Where
+                every guest becomes family</p>
+            <p>45 Avenue de la Lumière, Beverly Hills, CA 90210</p>
+            <p>Open Daily: 8am - 9pm</p>
+
+            <div class="client-quote">
+                Our doors open not just to serve, but to welcome you into a space where African warmth, artisan
+                excellence, and community spirit come together in every moment.
             </div>
         </section>
     </main>
+
+    <!-- Reservations Modal -->
+    <div id="reservations-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2 class="modal-heading">RESERVATIONS</h2>
+
+            <form class="reservation-form">
+                <div class="form-group">
+                    <label>Number of People - <em>Optional</em></label>
+                    <select class="form-select">
+                        <option value="">Number of People</option>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                        <option value="6">6 Guests</option>
+                        <option value="7">7 Guests</option>
+                        <option value="8+">8+ Guests</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Date - <em>Required</em></label>
+                    <input type="date" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Time - <em>Optional</em></label>
+                    <select class="form-select">
+                        <option value="">Time</option>
+                        <option value="8:00">8:00 AM</option>
+                        <option value="8:30">8:30 AM</option>
+                        <option value="9:00">9:00 AM</option>
+                        <option value="9:30">9:30 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="10:30">10:30 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="11:30">11:30 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="12:30">12:30 PM</option>
+                        <option value="1:00">1:00 PM</option>
+                        <option value="5:00">5:00 PM</option>
+                        <option value="6:00">6:00 PM</option>
+                        <option value="7:00">7:00 PM</option>
+                        <option value="8:00">8:00 PM</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="cta-button find-table-btn">
+                    <span class="decorative-left"></span>
+                    Find a Table
+                    <span class="decorative-right"></span>
+                </button>
+
+                <p class="modal-disclaimer">
+                    This site is protected by reCAPTCHA and the Google
+                    <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.
+                </p>
+            </form>
+        </div>
+    </div>
 
     <script src="js/app.js"></script>
 </body>
