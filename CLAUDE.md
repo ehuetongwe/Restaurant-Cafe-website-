@@ -37,6 +37,12 @@ Before writing a script, check `execution/` per your directive. Only create new 
 **3. Update directives as you learn**
 Directives are living documents. When you discover API constraints, better approaches, common errors, or timing expectations—update the directive. But don't create or overwrite directives without asking unless explicitly told to. Directives are your instruction set and must be preserved (and improved upon over time, not extemporaneously used and then discarded).
 
+**4. Update the Website SOP after every code change**
+After any modification to project files (`public/`, `database/`, `netlify.toml`, etc.), you MUST update `directives/website_sop.md`:
+  - Update the relevant section(s) to reflect your changes
+  - Add a new row to the Change Log (§15) with: date, summary, files modified, SOP sections updated
+  - This is non-optional — the SOP is the system's persistent memory
+
 ## Self-annealing loop
 Errors are learning opportunities. When something breaks:
 1. Fix it
